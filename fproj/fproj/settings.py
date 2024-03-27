@@ -38,8 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+     #3rd party
+    'mathfilters',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django_email_verification',
+
     #apps
-    'shop.apps.ShopConfig'
+    'cart.apps.CartConfig',
+    'shop.apps.ShopConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 #Castom context processors
+                'cart.context_processors.cart',
                 'shop.context_processors.categories',
             ],
         },
@@ -107,11 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
+
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -120,7 +129,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
+#Static files
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
@@ -130,3 +139,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Crispy forms
+CRISPIY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
